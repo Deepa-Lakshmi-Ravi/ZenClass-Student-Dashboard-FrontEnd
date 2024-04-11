@@ -1,0 +1,62 @@
+.portfolio {
+  padding-top: 15px;
+  margin-left: 60px;
+  margin-top: 0;
+}
+.portfolio-head {
+  display: flex;
+  flex-direction: row;
+  background-color: #f0efff;
+  height: 64px;
+  width: 100%;
+  padding: 16px 20px;
+  border-top: 1.5px solid #dedede;
+  justify-content: space-between;
+}
+.portfolio .label-style {
+  font-weight: 500;
+  font-size: 15px;
+  color: #3b4286;
+}
+.formInputs {
+  height: 3.4rem;
+  width: 100%;
+  font-size: 1rem;
+  padding: 12px 16px;
+  display: block;
+  border: 1px solid #7e8e9f;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.portfolio-area {
+  border-right: 1px solid rgba(128, 128, 128, 0.31);
+  display: block;
+}
+.portfolio .button {
+  height: 48px;
+  background: #4b0dba;
+  border: 1px solid #4b0dba;
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  padding: 7px;
+  color: #fff;
+}
+.portfolio .note {
+  padding: 5px 25px;
+  color: #3b4286;
+  opacity: 0.8;
+}
+.portfolio .review-header {
+  color: #4b0dba;
+  font-size: 24px;
+  font-weight: 400;
+}
+.px-4 {
+  padding-left: 1.5rem;
+}
+.p-4 {
+  padding: 1.5rem;
+}

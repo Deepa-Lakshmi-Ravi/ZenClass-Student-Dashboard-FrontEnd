@@ -1,0 +1,17 @@
+.certificate-header {
+  display: flex;
+  flex-direction: row;
+  background-color: #f0efff;
+  height: 64px;
+  width: 100%;
+  padding: 16px 20px;
+  border-top: 1.5px solid #dedede;
+  justify-content: space-between;
+}
+.certificate-content {
+  padding-bottom: 1.5rem;
+  text-align: center;
+  color: #545454;
+  font-size: 1.43rem;
+  margin-top: 50px;
+}

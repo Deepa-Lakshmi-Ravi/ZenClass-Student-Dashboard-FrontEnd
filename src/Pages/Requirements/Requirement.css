@@ -1,0 +1,96 @@
+.require-container {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 96px);
+  font-family: "DM Sans", sans-serif;
+}
+.require-nav-bar {
+  display: flex;
+  flex-direction: row;
+  background-color: #f0efff;
+  height: 64px;
+  width: 100%;
+  padding: 16px 20px;
+  border-top: 1.5px solid #dedede;
+  justify-content: space-between;
+}
+.empty {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+.search-box {
+  background-repeat: no-repeat;
+  background-position: 1%;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #93a4b7;
+  box-sizing: border-box;
+  border-radius: 8px;
+  width: 296px;
+  height: 32px;
+  outline: none;
+  padding-left: 28px;
+  padding-right: 12px;
+  color: #4b0dba;
+  font-weight: 400;
+}
+.require-content {
+  height: 100%;
+  max-height: calc(100vh - 160px);
+}
+.p-3 {
+  padding: 1rem;
+}
+.req-item {
+  height: 230px;
+  width: 95%;
+  border: 1.5px solid #efefef;
+  border-radius: 16px;
+  margin: 0 0 8px;
+  padding: 24px;
+  display: grid;
+  grid-gap: 24px;
+  gap: 24px;
+  grid-template-columns: repeat(5, 1fr) 80px;
+  background-color: #fff;
+  margin-left: 60px;
+}
+.comp-tile-item-a {
+  grid-column: 1 / 3;
+  display: flex;
+  grid-gap: 14px;
+  gap: 14px;
+  align-items: center;
+}
+.company-logo {
+  height: 48px;
+  width: 48px;
+  background-color: #555a8f;
+}
+.title-link {
+  line-height: 0.4rem;
+}
+h3 {
+  font-size: 1.43rem;
+  color: #545454;
+}
+.links {
+  display: flex;
+  align-items: center;
+  grid-gap: 4px;
+  gap: 4px;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.req-title {
+  display: block;
+  color: #555a8f;
+}
+
+.comp-tile-item-e {
+  grid-column: 1 / 3;
+}

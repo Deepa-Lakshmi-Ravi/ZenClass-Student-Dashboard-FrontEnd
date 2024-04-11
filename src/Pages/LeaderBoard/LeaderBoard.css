@@ -1,0 +1,48 @@
+.leaderboard {
+  margin-left: 50px;
+}
+
+.leader-leaderboard {
+  background: #f4f4f4;
+  border-radius: 16px;
+  color: #4b0dba;
+  width: 96%;
+  height: 180px;
+  margin: 20px auto;
+  display: flex;
+}
+.leader-leaderboard-heading {
+  font-size: 24px;
+  color: black;
+  margin-top: 50px;
+  margin-left: 30px;
+}
+.leader-leaderboard-icon {
+  margin-left: 280px;
+}
+.leader-leaderboard-table {
+  background-color: #fff;
+  width: 95% !important;
+  margin: 0;
+  padding: 0;
+  border-radius: 0.3125rem;
+  box-shadow: 0 2px 3px 0 hsla(0, 0%, 61.2%, 0.16);
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #f8f6f9;
+}
+.leader-leaderboard-table table thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.topper {
+  color: white;
+  background-color: #4b0dba;
+  font-weight: bold;
+}
+.leader-leaderboard-table table tr {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr;
+}

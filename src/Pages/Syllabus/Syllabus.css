@@ -1,0 +1,31 @@
+.syllabus {
+  height: 350px;
+  display: grid;
+  place-items: center;
+}
+.syllabus-container {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  min-width: 300px;
+  height: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  color: white;
+  text-align: center;
+  border: 1px solid #80808059;
+}
+.doc-title {
+  color: rgb(51, 2, 138);
+  font-size: 20px;
+  font-weight: 500;
+  position: relative;
+}
+.doc-body {
+  color:rgb(51, 2, 138) ;
+  padding: 25px;
+}
+.downlaod-syllabus {
+ text-decoration: none;
+}

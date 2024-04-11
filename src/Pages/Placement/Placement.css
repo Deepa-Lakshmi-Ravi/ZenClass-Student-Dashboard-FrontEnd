@@ -1,0 +1,16 @@
+.placement-board {
+  margin-top: 30px;
+}
+
+.placement {
+  width: 768px;
+  border: 2px solid #efefef;
+  border-radius: 16px;
+  padding: 16px 24px;
+  margin: 0 auto 8px !important;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Muli", sans-serif;
+  color: #555a8f;
+  background-color: #fff;
+}

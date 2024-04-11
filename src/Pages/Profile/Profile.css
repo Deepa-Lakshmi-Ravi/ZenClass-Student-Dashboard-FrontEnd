@@ -1,0 +1,52 @@
+.detailsCard {
+  width: 900px;
+  border: 2px solid #efefef;
+  border-radius: 16px;
+  padding: 40px 60px;
+  margin: 8px auto;
+  margin-left: 200px;
+  font-family: "DM Sans", sans-serif;
+}
+.detailCards label {
+  margin: 14px 0 0;
+  font-size: 1rem;
+  grid-column: 2 / 3;
+}
+.label-style {
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  font-size: 16px;
+  color: #7e8e9f;
+  word-break: none;
+}
+
+.form-control {
+  height: 3.4rem;
+  width: 100%;
+  font-size: 1rem;
+  padding: 12px 16px;
+  border: 1px solid #7e8e9f;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background-color: #fff;
+}
+.profile input::placeholder {
+  color: #80808059;
+}
+.profile input:disabled {
+  opacity: 0.5;
+}
+.save-btn-card {
+  width: 900px;
+  margin: 24px auto;
+  padding: 0;
+  border: 0;
+}
+.save-btn-grid {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  grid-gap: 12px;
+  gap: 12px;
+}

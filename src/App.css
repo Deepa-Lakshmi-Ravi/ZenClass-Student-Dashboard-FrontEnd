@@ -1,0 +1,125 @@
+body {
+  background-color: #f9fbfd !important;
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #7e8e9f;
+}
+@media screen and (max-width: 992px) {
+  .roadmap .main-container {
+    flex-direction: column;
+  }
+  .roadmap .main-container .left {
+    -webkit-order: 2;
+    order: 2;
+  }
+  .sessionsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 16px;
+  }
+  .step-left,
+  .step-right {
+    display: none;
+  }
+  .step-bottom {
+    display: none;
+  }
+  .roadmap-area {
+    width: auto;
+  }
+  .task-container {
+    max-width: 768px;
+    margin: 0 auto 8px 70px !important;
+  }
+  .leave .leave-container,
+  .mock .mock-container {
+    margin: 0 auto 8px !important;
+  }
+  .progress-head {
+    text-align: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  .navbar-side:hover {
+    width: 250px;
+  }
+  .navbar-side:hover .nav-header {
+    padding-left: 10px;
+  }
+  .navbar-side:hover .user,
+  .navbar-side:hover .nav-title {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .top-header .heading {
+    font-size: 36px;
+  }
+  .user-name {
+    display: none;
+  }
+  .flexCont {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .flexCont-data {
+    text-align: center;
+  }
+  .leader-leaderboard h2 {
+    font-size: 24px;
+  }
+  .nav-toggle {
+    height: 40px;
+    width: 40px;
+    opacity: 1;
+  }
+  .navbar-side.active {
+    width: 250px;
+  }
+  .navbar-side.active .user,
+  .navbar-side.active .nav-title {
+    opacity: 1;
+  }
+  .navbar-side.active .nav-header {
+    padding-left: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .top-header .heading {
+    font-size: 24px;
+  }
+  .classhead {
+    font-size: 20px;
+  }
+
+  .sessionsContainer {
+    gap: 16px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .top-header .heading {
+    font-size: 20px;
+  }
+  .user-logo {
+    height: 45px;
+    width: 45px;
+    font-size: 24px;
+  }
+  .modal-dialog {
+    max-width: 800px !important;
+    min-width: 360px !important;
+  }
+  .task-container {
+    padding: 15px;
+  }
+}

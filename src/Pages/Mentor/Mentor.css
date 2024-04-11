@@ -1,0 +1,26 @@
+.mentor .heading {
+  margin-left: 0;
+  color: #4b0dba;
+}
+.mentor .submit-btn {
+  background-color: #4b0dba;
+  color: #fff;
+  transition: 0.3s;
+}
+.mentor .submit-btn:hover {
+  opacity: 0.9;
+  color: #fff;
+  background-color: #4b0dba;
+  letter-spacing: 1px;
+}
+.mentor .task-container {
+  margin: 0 auto 10px !important;
+}
+.mentor h1,
+.mentor h5 {
+  margin-bottom: 0 !important;
+}
+.mentor .task-heading {
+  background-color: #4b0dba;
+  color: #fff;
+}

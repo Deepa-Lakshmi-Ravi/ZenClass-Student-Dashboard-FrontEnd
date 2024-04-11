@@ -1,0 +1,51 @@
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 96px);
+}
+.btn-container {
+  display: flex;
+  align-items: center;
+  background-color: #f0efff;
+  height: 75px;
+  border-radius: 5px;
+}
+.testimonial .addBtn {
+  border: 1px solid  #4b0dba;
+  width:15%;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.form-input{
+  height: 3.4rem;
+  width: 100%;
+  font-size: 1rem;
+  padding: 12px 16px;
+  display: block;
+  border: 1px solid #7e8e9f;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.testimonial .submit-btn {
+  background-color:  #4b0dba;
+  color: #fff;
+  margin-left: 30px;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+.testimonial .modal-body {
+  padding: 20px;
+  align-items: center;
+  gap: 25px;
+}
+.testimonial .marktag {
+  width: auto;
+}
+.modal .modal-content{
+  width: 120%;
+}
+.testimonial-text{
+  color: #545454;
+}

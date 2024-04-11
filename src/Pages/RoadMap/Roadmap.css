@@ -1,0 +1,216 @@
+.roadmap {
+  min-height: calc(100vh - 120px);
+  transition: 0.3s;
+  width: 100vw;
+  position: sticky;
+}
+.main-container .left {
+  position: sticky;
+  max-width: 67%;
+  left: 68px;
+  top: 0;
+  z-index: 50;
+}
+.roadmap .left {
+  flex: 1;
+  padding: 5px;
+}
+.class-head {
+  background-color: #4b0dba;
+  border-radius: 8px;
+  height: 80px;
+  box-shadow: 10px;
+}
+.play-btn {
+  padding: 16px 24px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: #2ed16c;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 500;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.6);
+}
+.recording-link {
+  word-wrap: break-word;
+  text-decoration: none;
+}
+.session-container {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #dedede;
+  border-radius: 8px;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  padding: 19px;
+}
+.session-area {
+  margin-top: 20px;
+}
+.session-details {
+  color: #3b4286;
+}
+.session-title {
+  word-wrap: break-word;
+  font-size: 24px;
+  font-weight: 500;
+}
+.session-content {
+  font-weight: 500;
+}
+.session-content-details {
+  padding-left: 20px;
+  font-size: 14px;
+  white-space-collapse: preserve;
+  text-wrap: wrap;
+}
+.roadmap-container {
+  margin-top: 5px;
+}
+.roadmap-area {
+  border-radius: 5px;
+  border: 1px solid #dedede;
+  width: 386px;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+}
+.progress-head {
+  background-color: #f7f5fc;
+  height: 49px;
+  border-radius: 8px 8px 0 0;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #3b4286;
+}
+.sessionsContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  row-gap: 16px;
+  column-gap: 32px;
+  padding: 16px 32px;
+}
+.roadmap-icon-container {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #4b0dba;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+h6 {
+  padding-top: 8px;
+}
+.roadmap-icon-container.completed {
+  background-color: #4b0dba;
+  color: #fff;
+}
+.step-left,
+.step-right {
+  border: 2px solid #93a4b7;
+  border-radius: 10px;
+  width: 28px;
+  position: absolute;
+}
+.roadmap-icon-container:hover .step-left {
+  width: 24px;
+  left: -28px;
+}
+.roadmap-icon-container:hover .step-right {
+  width: 24px;
+}
+.step-bottom {
+  border: 2px solid #93a4b7;
+  position: absolute;
+  height: 12px;
+  bottom: -16px;
+  border-radius: 10px;
+}
+.step-right {
+  left: 40px;
+}
+.step-left {
+  left: -32px;
+}
+.activity {
+  font-weight: 500;
+  font-size: 24px;
+  color: #4b0dba;
+}
+.task-link {
+  max-width: 90%;
+  max-height: 30%;
+  font-size: 16px;
+  font-weight: 500;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #3b4286;
+  text-align: start;
+}
+.task-toggle {
+  display: block;
+  background-color: #4b0dba;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  border-radius: 50%;
+}
+.tagsList {
+  display: flex;
+  flex-direction: row;
+  grid-gap: 12px;
+  gap: 12px;
+  align-items: center;
+  margin-top: 10px;
+}
+.tagTitle {
+  font-weight: 400;
+}
+.tagItem {
+  border: 2px solid #231f20;
+  padding: 0 12px;
+  border-radius: 80px;
+  color: #fff;
+  background-color: #4b0dba;
+  font-size: 14px;
+}
+.task-area {
+  margin-top: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #ffd3a2;
+  border-radius: 8px;
+}
+.submission {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+}
+.label-style {
+  font-weight: 500;
+  line-height: 24px;
+  color: #7e8e9f;
+}
+.formInputs {
+  height: 3.4rem;
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #3b4286;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+.formInputs:focus,
+.formInputs:hover {
+  box-shadow: 0 0 5px #4b0dba;
+}
+.task-submitBtn {
+  text-align: end;
+}

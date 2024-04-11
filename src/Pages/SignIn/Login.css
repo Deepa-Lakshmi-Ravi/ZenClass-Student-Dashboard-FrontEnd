@@ -1,0 +1,26 @@
+.loginpage .col-md-8 {
+  position: relative;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 10px;
+}
+.loginpage .col-lg-8 {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.loginpage .label-style {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #7e8e9f;
+}
+.loginpage .zenbanner {
+  width: 100%;
+  height: 100vh;
+  margin-left: 100px;
+}
+.pr-0 {
+  padding-right: 0 !important;
+}

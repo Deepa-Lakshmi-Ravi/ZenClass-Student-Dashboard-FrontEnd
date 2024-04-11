@@ -1,0 +1,66 @@
+import { useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+import profileImg from "../../assets/profile img.png";
+import DataContext from "../../Context/dataContext";
+import "./Head.css";
+
+const Header = () => {
+  const { head, setHead, handleLogout, loggedUser } = useContext(DataContext);
+
+  useEffect(() => {
+    const header = localStorage.getItem("head");
+    if (header) {
+      setHead(header);
+    } else {
+      setHead("Class");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <>
+      <header className="top-header d-flex align-items-center justify-content-between">
+        <h1 className="heading ">{head}</h1>
+        {loggedUser && (
+          <div className="user-profile d-flex gap-3">
+            <h5 className="mt-3 mr-3 user-name">
+              {loggedUser.firstName.toUpperCase()}{" "}
+              {loggedUser.lastName.toUpperCase()}
+            </h5>
+            <div className="flex-icons">
+              <div className="d-flex align-items-center justify-content-center dropdown">
+                <span
+                  className="dropdown"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                >
+                  <div className="user-logo d-flex align-items-center justify-content-center">
+                    <img src={profileImg} alt="profile image"></img>
+                  </div>
+                </span>
+                <ul className="dropdown-menu">
+                  <li>
+                    <Link
+                      className="dropdown-item"
+                      onClick={() => setHead("Update Profile")}
+                      to="/profile"
+                    >
+                      Profile
+                    </Link>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" onClick={handleLogout}>
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        )}
+      </header>
+    </>
+  );
+};
+
+export default Header;

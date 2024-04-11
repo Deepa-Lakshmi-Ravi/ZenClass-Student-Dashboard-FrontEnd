@@ -1,0 +1,15 @@
+.loggedOut {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.loggedOut .body-container {
+  min-width: 400px;
+  background-color: #4b0dba;
+  color: #fff;
+}
+.loggedOut .img-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
