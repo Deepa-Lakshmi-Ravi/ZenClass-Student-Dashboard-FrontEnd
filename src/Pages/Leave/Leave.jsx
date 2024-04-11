@@ -98,7 +98,7 @@ const Leave = () => {
                     resetForm({ values: "" });
                   }}
                 >
-                  <Form className='className="d-flex justify-content-center w-75 flex-column mt-2'>
+                  <Form className="d-flex justify-content-center w-75 flex-column mt-2">
                     <label className="label-style">Applied On</label>
                     <Field
                       name="appliedOn"
