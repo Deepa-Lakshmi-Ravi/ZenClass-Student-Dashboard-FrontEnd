@@ -42,13 +42,16 @@ const ResetPasswordForm = () => {
         }, 2000);
       }
     } catch (error) {
-      console.log(error);
-      toast.error(
-        "Invalid token or token has expired.Please request a new reset link.",
-        {
-          position: "top-center",
-        }
-      );
+      if (error.response && error.response.status === 400) {
+        toast.error(
+          "Invalid token or token has expired.Please request a new reset link.",
+          {
+            position: "top-center",
+          }
+        );
+      } else {
+        console.log(error);
+      }
     } finally {
       setLoading(false);
     }
