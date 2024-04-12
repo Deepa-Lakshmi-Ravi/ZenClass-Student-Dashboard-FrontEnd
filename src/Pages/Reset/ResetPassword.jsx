@@ -32,10 +32,7 @@ const ResetPasswordForm = () => {
   const handleresetPassword = async (data) => {
     setLoading(true);
     try {
-      let response = await AxiosService.post(
-        `/student/reset-password/${randomString}/${expirationTimestamp}`,
-        data
-      );
+      const response = await AxiosService.post(`/student/reset-password/${randomString}/${expirationTimestamp}`,data);
       if (response.status === 200) {
         toast.success("Password updated successfully", {
           position: "top-center",
@@ -45,16 +42,15 @@ const ResetPasswordForm = () => {
         }, 2000);
       }
     } catch (error) {
-      console.log(error);
-      toast.error(
-        "Invalid token or token has expired.Please request a new reset link.",
-        {
-          position: "top-center",
-        }
-      );
+      if (error.response.data.message) {
+        toast.error(error.response.data.message)
+    } else {
+        console.log(error);
+    }
     } finally {
       setLoading(false);
     }
+    console.log(handleresetPassword());
   };
 
   return (
@@ -81,7 +77,7 @@ const ResetPasswordForm = () => {
                     validationSchema={Validate}
                     onSubmit={(values, { resetForm }) => {
                       handleresetPassword(values);
-                      resetForm({ values: "" });
+                      resetForm();
                     }}
                   >
                     {({ errors, touched }) => (
@@ -93,6 +89,7 @@ const ResetPasswordForm = () => {
                           <Field
                             type="password"
                             name="password"
+                            id="password"
                             placeholder="********"
                             className="form-control"
                           />
@@ -111,6 +108,7 @@ const ResetPasswordForm = () => {
                           <Field
                             type="password"
                             name="confirmPassword"
+                            id="confirmPassword"
                             placeholder="********"
                             className="form-control"
                           />
