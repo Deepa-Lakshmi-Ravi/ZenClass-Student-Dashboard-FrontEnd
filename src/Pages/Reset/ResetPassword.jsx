@@ -107,7 +107,7 @@ const ResetPasswordForm = () => {
                             Confirm Password
                           </label>
                           <Field
-                            type="password"
+                            type="confirmPassword"
                             name="confirmPassword"
                             id="confirmPassword"
                             placeholder="********"
