@@ -52,7 +52,6 @@ const ResetPasswordForm = () => {
     } finally {
       setLoading(false);
     }
-    console.log(handleresetPassword());
   };
 
   return (
