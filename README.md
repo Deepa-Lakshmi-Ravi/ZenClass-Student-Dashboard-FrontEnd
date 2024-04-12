@@ -1,6 +1,6 @@
 # Zen Class Student Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a student dashboard for ZenClass, a platform for online learning. The dashboard provides students with access to their courses, assignments, grades, and other relevant information.
 
 Currently, two official plugins are available:
 
