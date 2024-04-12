@@ -7,8 +7,7 @@ import * as Yup from "yup";
 import logo from "../../assets/zen logo.png";
 import banner from "../../assets/zen banner.png";
 import "./ResetPassword.css";
-//import AxiosService from "../../Axios/AxiosService";
-import axios from 'axios';
+import AxiosService from "../../Axios/AxiosService";
 
 const Validate = Yup.object().shape({
   password: Yup.string()
@@ -33,7 +32,7 @@ const ResetPasswordForm = () => {
   const handleresetPassword = async (data) => {
     setLoading(true);
     try {
-      const response = await axios.post(`/student/reset-password/${randomString}/${expirationTimestamp}`,data);
+      const response = await AxiosService.post(`/student/reset-password/${randomString}/${expirationTimestamp}`,data);
       if (response.status === 200) {
         toast.success("Password updated successfully", {
           position: "top-center",
