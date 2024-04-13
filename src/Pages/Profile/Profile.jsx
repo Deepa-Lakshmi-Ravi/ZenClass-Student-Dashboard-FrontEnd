@@ -47,7 +47,6 @@ const Profile = () => {
   }, []);
 
   return (
-    <>
       <section className="profile">
         <div className="container mt-5">
           <Formik
@@ -66,9 +65,11 @@ const Profile = () => {
             }}
             validationSchema={Validate}
             onSubmit={(values, { resetForm }) => {
-              resetForm();
+              handleProfileUpdate(values);
+              resetForm({values:"" });
             }}
           >
+            
             <Form>
               <div className="detailsCard">
                 <div className="personalDetails">
@@ -227,9 +228,8 @@ const Profile = () => {
                 <div className="save-btn-grid">
                   <button
                     type="submit"
-                    className="save-profile btn btn-primary"
-                    onClick={handleProfileUpdate}
-                  >
+                    className="btn btn-primary"
+                    >
                     {loading ? (
                       <span className="spinner-border spinner-border-sm text-warning"></span>
                     ) : (
@@ -243,7 +243,6 @@ const Profile = () => {
         </div>
         <ToastContainer position="top-center" autoClose={3000} />
       </section>
-    </>
   );
 };
 
