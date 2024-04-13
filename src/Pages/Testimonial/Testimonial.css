@@ -12,8 +12,6 @@
 }
 .testimonial .addBtn {
   border: 1px solid  #4b0dba;
-  width:15%;
-  font-weight: 700;
   font-size: 1.2rem;
 }
 .form-input{
@@ -31,9 +29,11 @@
 .testimonial .submit-btn {
   background-color:  #4b0dba;
   color: #fff;
-  margin-left: 30px;
   font-weight: 500;
   font-size: 1.1rem;
+  border-radius: 8px;
+  padding: 6px;
+  border: none;
 }
 .testimonial .modal-body {
   padding: 20px;

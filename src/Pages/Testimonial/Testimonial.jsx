@@ -35,7 +35,12 @@ const Testimonial = () => {
       <section className="testimonial">
         <div className="btn-container">
           <button
-            className="btn addBtn"
+          style={{
+            padding:"7px",
+            borderRadius:"10px",
+            width:"15%"
+          }}
+            className="addBtn"
             type="button"
             data-bs-toggle="modal"
             data-bs-target="#myModal"
@@ -135,8 +140,8 @@ const Testimonial = () => {
                           style={{ fontWeight: "500", fontSize: "1.1rem" }}
                         >
                           Close
-                        </button>
-                        <button type="submit" className="btn submit-btn w-25">
+                        </button>&nbsp; &nbsp; &nbsp;
+                        <button type="submit" className="submit-btn w-25">
                           {loading ? (
                             <span className="spinner-border spinner-border-sm text-warning"></span>
                           ) : (

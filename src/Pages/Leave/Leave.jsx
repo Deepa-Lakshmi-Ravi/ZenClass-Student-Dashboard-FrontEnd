@@ -146,7 +146,7 @@ const Leave = () => {
             return (
               <div
                 className="modal"
-                id={`#leaveModel${data._id}`}
+                id={`leaveModel${data._id}`}
                 key={data._id}
               >
                 <div className="modal-dialog">
