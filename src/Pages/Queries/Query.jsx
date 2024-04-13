@@ -36,7 +36,12 @@ const Query = () => {
       <section className="query">
         <div className="btn-container">
           <button
-            className="btn addBtn"
+          style={{
+            padding:"7px",
+            borderRadius:"10px",
+            width:"10%"
+          }}
+            className="addBtn"
             type="button"
             data-bs-toggle="modal"
             data-bs-target="#myModal"

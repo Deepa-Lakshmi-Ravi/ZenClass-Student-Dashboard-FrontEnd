@@ -52,7 +52,7 @@ const Leave = () => {
                 className="leave-container"
                 key={data._id}
                 data-bs-toggle="modal"
-                data-bs-target={`#leaveModal${data._id}`}
+                data-bs-target={`#leaveModel${data._id}`}
               >
                 <div className="flexCont">
                   <div className="text-center">
@@ -146,7 +146,7 @@ const Leave = () => {
             return (
               <div
                 className="modal"
-                id={`leaveModal${data._id}`}
+                id={`#leaveModel${data._id}`}
                 key={data._id}
               >
                 <div className="modal-dialog">

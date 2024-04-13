@@ -197,7 +197,7 @@ export const DataProvider = ({ children }) => {
   const handleProfileUpdate = async (data) => {
     setLoading(true);
     try {
-      const response = await AxiosService.put("/student/update", data);
+      const response = await AxiosService.patch("/student/update", data);
       const student = response.data.matchedstudent;
       const updatedData = { token, student };
       localStorage.setItem("loggedInUser", JSON.stringify(updatedData));

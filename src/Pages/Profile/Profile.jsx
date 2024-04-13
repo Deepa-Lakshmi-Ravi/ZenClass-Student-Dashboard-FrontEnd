@@ -32,7 +32,7 @@ const Validate = Yup.object().shape({
     .min(1, "Must be atleast 1 character")
     .max(35, "Must be less than 35 characters")
     .required("Required"),
-  noticeperiod: Yup.string().required(false),
+  noticeperiod: Yup.string().required(true),
   portfolioUrl: Yup.string().required(true),
   githubUrl: Yup.string().required(true),
   resumeUrl: Yup.string().required(true),
@@ -70,7 +70,7 @@ const Profile = () => {
             }}
           >
             
-            <Form>
+            <Form className="form-cards">
               <div className="detailsCard">
                 <div className="personalDetails">
                   <div className="form-group">
@@ -228,7 +228,7 @@ const Profile = () => {
                 <div className="save-btn-grid">
                   <button
                     type="submit"
-                    className="btn btn-primary"
+                    className="save-profile btn btn-primary"
                     >
                     {loading ? (
                       <span className="spinner-border spinner-border-sm text-warning"></span>
