@@ -133,7 +133,7 @@ const Testimonial = () => {
                       type="textarea"
                     />
                     <div className="modal-footer">
-                      <div className="testi-btn text-center w-100">
+                      <div className="w-100" style={{textAlign:"end"}}>
                         <button
                           className="btn btn-danger w-25 clo-btn"
                           data-bs-dismiss="modal"
