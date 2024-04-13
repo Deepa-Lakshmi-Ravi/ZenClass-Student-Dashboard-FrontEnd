@@ -18,9 +18,6 @@ const Validate = Yup.object().shape({
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
       "Make it More Strong"
     ),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Password Must Match")
-    .required("Required"),
 });
 
 const ResetPasswordForm = () => {
@@ -29,10 +26,10 @@ const ResetPasswordForm = () => {
   const { randomString, expirationTimestamp } = useParams();
   const navigate = useNavigate();
 
-  const handleresetPassword = async (password) => {
+  const handleresetPassword = async (data) => {
     setLoading(true);
     try {
-      const response = await AxiosService.post(`/student/reset-password/${randomString}/${expirationTimestamp}`,{password});
+      const response = await AxiosService.post(`/student/reset-password/${randomString}/${expirationTimestamp}`,data);
       if (response.status === 200) {
         toast.success("Password updated successfully", {
           position: "top-center",
@@ -75,11 +72,10 @@ const ResetPasswordForm = () => {
                   <Formik
                     initialValues={{
                       password: "",
-                      confirmPassword: "",
                     }}
                     validationSchema={Validate}
                     onSubmit={(values, { resetForm }) => {
-                      handleresetPassword(values.password);
+                      handleresetPassword(values);
                       resetForm();
                     }}
                   >
@@ -101,27 +97,6 @@ const ResetPasswordForm = () => {
                           )}
                         </div>
 
-                        <div className="form-group">
-                          <label
-                            className="label-style"
-                            htmlFor="confirmPassword"
-                          >
-                            Confirm Password
-                          </label>
-                          <Field
-                            type="password"
-                            name="confirmPassword"
-                            id="confirmPassword"
-                            placeholder="********"
-                            className="form-control"
-                          />
-                          {errors.confirmPassword &&
-                            touched.confirmPassword && (
-                              <p style={{ color: "red" }}>
-                                {errors.confirmPassword}
-                              </p>
-                            )}
-                        </div>
                         <button
                           style={{
                             backgroundColor: "#4b0dba",
