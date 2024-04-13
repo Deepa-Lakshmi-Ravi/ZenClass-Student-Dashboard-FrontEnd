@@ -201,7 +201,7 @@ export const DataProvider = ({ children }) => {
       const student = response.data.matchedstudent;
       const updatedData = { token, student };
       localStorage.setItem("loggedInUser", JSON.stringify(updatedData));
-      setLoggedUser(updatedData.studentData);
+      setLoggedUser(updatedData.student);
       toast.success("Profile updated successfully");
       setLoading(false);
       setTimeout(() => {
