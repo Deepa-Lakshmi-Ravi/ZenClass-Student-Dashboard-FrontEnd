@@ -29,10 +29,10 @@ const ResetPasswordForm = () => {
   const { randomString, expirationTimestamp } = useParams();
   const navigate = useNavigate();
 
-  const handleresetPassword = async (data) => {
+  const handleresetPassword = async (password) => {
     setLoading(true);
     try {
-      const response = await AxiosService.post(`/student/reset-password/${randomString}/${expirationTimestamp}`,data);
+      const response = await AxiosService.post(`/student/reset-password/${randomString}/${expirationTimestamp}`,{password});
       if (response.status === 200) {
         toast.success("Password updated successfully", {
           position: "top-center",
@@ -58,7 +58,6 @@ const ResetPasswordForm = () => {
   };
 
   return (
-    <>
       <div className="resetpage">
         <div className="row m-0">
           <div className="col-md-8">
@@ -80,7 +79,7 @@ const ResetPasswordForm = () => {
                     }}
                     validationSchema={Validate}
                     onSubmit={(values, { resetForm }) => {
-                      handleresetPassword(values);
+                      handleresetPassword(values.password);
                       resetForm();
                     }}
                   >
@@ -150,7 +149,6 @@ const ResetPasswordForm = () => {
         </div>
         <ToastContainer position="top-center" autoClose={3000} />
       </div>
-    </>
   );
 };
 
