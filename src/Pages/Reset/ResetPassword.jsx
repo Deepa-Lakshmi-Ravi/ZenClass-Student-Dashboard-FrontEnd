@@ -1,37 +1,42 @@
-import { useContext } from "react";
+import { useContext,useState } from "react";
 import DataContext from "../../Context/dataContext";
 import { useParams,useNavigate } from "react-router-dom";
 import { ToastContainer,toast } from "react-toastify";
-import { Formik, Form, Field } from "formik";
-import * as Yup from "yup";
+//import { Formik, Form, Field } from "formik";
+//import * as Yup from "yup";
 import logo from "../../assets/zen logo.png";
 import banner from "../../assets/zen banner.png";
 import "./ResetPassword.css";
 //import AxiosService from "../../Axios/AxiosService";
 import axios from 'axios';
 
-const Validate = Yup.object().shape({
-  password: Yup.string()
-    .min(8, "Must be atleast 8 characters")
-    .max(15, "Must be less than 15 characters")
-    .required("Required")
-    .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-      "Make it More Strong"
-    ),
-});
+// const Validate = Yup.object().shape({
+//   password: Yup.string()
+//     .min(8, "Must be atleast 8 characters")
+//     .max(15, "Must be less than 15 characters")
+//     .required("Required")
+//     .matches(
+//       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+//       "Make it More Strong"
+//     ),
+// });
 
 const ResetPasswordForm = () => {
+  const[password,setPassword] = useState("");
   const { loading,setLoading } = useContext(DataContext);
 
   const{randomString , expirationTimestamp} = useParams();
   const navigate = useNavigate();
 
-  const handleresetPassword = async (data) => {
+  const handleresetPassword = async (e) => {
+    e.preventDefault();
     setLoading(true);
     try {
       let response = await axios.post(
-        `https://zenclass-student-dashboard-backend-juqy.onrender.com/student/reset-password/${randomString}/${expirationTimestamp}`,data
+        `https://zenclass-student-dashboard-backend-juqy.onrender.com/student/reset-password/${randomString}/${expirationTimestamp}`,
+        {
+          newPassword: password
+        }
       );
       if (response.status === 200) {
         toast.success("Password updated successfully", {
@@ -74,32 +79,20 @@ const ResetPasswordForm = () => {
             <div className="row">
               <div className="col-md-12 d-flex flex-column justify-content-center align-items-center">
                 <div className=" col-lg-8">
-                  <Formik
-                    initialValues={{
-                      password: "",
-                    }}
-                    validationSchema={Validate}
-                    onSubmit={(values, { resetForm }) => {
-                      handleresetPassword(values);
-                      resetForm();
-                    }}
-                  >
-                    {({ errors, touched }) => (
-                      <Form>
+                      <form>
                         <div className="form-group">
                           <label className="label-style" htmlFor="password">
                             Password
                           </label>
-                          <Field
+                          <input
                             type="password"
                             name="password"
                             id="password"
                             placeholder="********"
                             className="form-control"
+                            required
+                            onChange={(e) => setPassword(e.target.value)}
                           />
-                          {errors.password && touched.password && (
-                            <p style={{ color: "red" }}>{errors.password}</p>
-                          )}
                         </div>
                         <button
                           style={{
@@ -107,6 +100,7 @@ const ResetPasswordForm = () => {
                             color: "#fff",
                           }}
                           type="submit"
+                          onClick={handleresetPassword}
                           className="col-12 btn btn-lg btn-block login__btn mt-4 mb-4 d-flex justify-content-center"
                         >
                           {loading ? (
@@ -115,9 +109,8 @@ const ResetPasswordForm = () => {
                             "Submit"
                           )}
                         </button>
-                      </Form>
-                    )}
-                  </Formik>
+                      </form>
+                  
                 </div>
               </div>
             </div>
