@@ -21,11 +21,22 @@ const ResetPasswordForm = () => {
   const handleresetPassword = async (e) => {
     e.preventDefault();
     setLoading(true);
+
+    // Check if passwords match
+  if (password !== confirmPassword) {
+    toast.error("Passwords do not match", {
+      position: "top-center",
+    });
+    setLoading(false);
+    return;
+  }
+  
     try {
       let response = await axios.post(
         `https://zenclass-student-dashboard-backend-juqy.onrender.com/student/reset-password/${randomString}/${expirationTimestamp}`,
         {
-          newPassword: password,confirmPassword
+          newPassword: password,
+          confirmPassword: confirmPassword,
         }
       );
       if (response.status === 200) {
