@@ -10,7 +10,7 @@ const Webcode = ()=>{
   return(
     <>
     <div className="webcode" style={{width:"100vw"}}>
-        <h3 style={{color:"#3b4286",textAlign:"center",margin: "0"}}>Webcode</h3>
+        <h3 style={{color:"#3b4286",textAlign:"center",margin: "0"}}>No Webcode Avilable</h3>
     </div>
     </>
   )
