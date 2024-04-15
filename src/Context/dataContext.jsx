@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import AxiosService from "../Axios/AxiosService";
 import { roadMapData } from "../../utils/RoadmapData";
@@ -34,7 +34,7 @@ export const DataProvider = ({ children }) => {
   const [frontEndURL, setFrontEndURL] = useState("");
   const [backEndCode, setBackEndCode] = useState("");
   const [backEndURL, setBackEndURL] = useState("");
-  const [DBTask, setDBTask] = useState([]);
+  const [DBTask,setDBTask] = useState([]);
   const [trigger, setTrigger] = useState(0);
   const [capStone, setCapStone] = useState(null);
   const [query, setQuery] = useState([]);
@@ -163,16 +163,16 @@ export const DataProvider = ({ children }) => {
   };
 
   //handle reset
-  const { randomString, expirationTimestamp } = useParams();
 
   const handleresetPassword = async (data) => {
     setLoading(true);
     try {
       let response = await AxiosService.post(
-        `/student/reset-password/${randomString}/${expirationTimestamp}`,
+        `/student/reset-password/${resetToken}`,
         data
       );
-      if (response.status === 200) {
+      setResetToken("");
+      if (response.status === 201) {
         toast.success("Password updated successfully", {
           position: "top-center",
         });
@@ -628,7 +628,7 @@ export const DataProvider = ({ children }) => {
     >
       {children}
     </DataContext.Provider>
-  );
+  )
 };
 
 export default DataContext;

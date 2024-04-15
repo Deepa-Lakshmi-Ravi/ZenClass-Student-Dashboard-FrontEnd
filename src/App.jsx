@@ -46,7 +46,7 @@ function App() {
             <Route path="/forgot" element={<ForgotPasswordForm />} />
             <Route path="/signup" element={<SignUpForm />} />
             <Route
-              path="/reset-password/:randomString/:expirationTimestamp"
+              path="/reset-password/:id"
               element={<ResetPasswordForm />}
             />
             <Route path="/*" element={<LoggedOut />} />

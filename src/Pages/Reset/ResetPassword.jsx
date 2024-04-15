@@ -1,5 +1,6 @@
-import { useContext } from "react";
+import { useContext,useEffect } from "react";
 import DataContext from "../../Context/dataContext";
+import { useParams } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
@@ -22,9 +23,13 @@ const Validate = Yup.object().shape({
 });
 
 const ResetPasswordForm = () => {
-  const { loading, handleresetPassword } = useContext(DataContext);
+  const { loading,setResetToken, handleresetPassword } = useContext(DataContext);
 
-  
+  const{id} = useParams();
+
+  useEffect(()=>{
+    setResetToken(id);
+  })
 
   return (
       <div className="resetpage">

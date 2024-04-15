@@ -31,7 +31,6 @@ const Testimonial = () => {
   }, [trigger, setTrigger]);
 
   return (
-    <>
       <section className="testimonial">
         <div className="btn-container">
           <button
@@ -208,7 +207,6 @@ const Testimonial = () => {
           autoClose={3000}
         />
       </section>
-    </>
   );
 };
 
