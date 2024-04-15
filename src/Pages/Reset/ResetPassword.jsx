@@ -22,20 +22,18 @@ const Validate = Yup.object().shape({
 });
 
 const ResetPasswordForm = () => {
-  const { loading,setLoading,password } = useContext(DataContext);
+  const { loading,setLoading } = useContext(DataContext);
 
   const{randomString , expirationTimestamp} = useParams();
   const navigate = useNavigate();
 
-  const handleresetPassword = async () => {
+  const handleresetPassword = async (data) => {
     setLoading(true);
     try {
       let response = await axios.post(
-        `https://zenclass-student-dashboard-backend-juqy.onrender.com/student/reset-password/${randomString}/${expirationTimestamp}`,{
-          newPassword: password
-        }
+        `https://zenclass-student-dashboard-backend-juqy.onrender.com/student/reset-password/${randomString}/${expirationTimestamp}`,data
       );
-      if (response.status === 201) {
+      if (response.status === 200) {
         toast.success("Password updated successfully", {
           position: "top-center",
         });
