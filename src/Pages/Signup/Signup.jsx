@@ -44,7 +44,7 @@ const Validate = Yup.object().shape({
 });
 
 const SignUpForm = () => {
-  const { loading, showPassword, PasswordVisible, handleSignup } =
+  const { loading, showPassword, handleSignup } =
     useContext(DataContext);
 
   return (
@@ -185,16 +185,6 @@ const SignUpForm = () => {
                             <p style={{ color: "red" }}>{errors.password}</p>
                           )}
                         </div>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            id="showPassword"
-                            checked={showPassword}
-                            onChange={PasswordVisible}
-                          />
-                          <label htmlFor="showPassword"> Show Password</label>
-                        </div>
                         <div className="form-group">
                           <label
                             className="label-style"
@@ -214,16 +204,6 @@ const SignUpForm = () => {
                                 {errors.confirmPassword}
                               </p>
                             )}
-                        </div>
-                        <div className="form-check">
-                          <input
-                            className="form-check-input"
-                            type="checkbox"
-                            id="showPassword"
-                            checked={showPassword}
-                            onChange={PasswordVisible}
-                          />
-                          <label htmlFor="showPassword"> Show Password</label>
                         </div>
                         <button
                           style={{
