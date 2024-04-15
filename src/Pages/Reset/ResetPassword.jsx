@@ -1,4 +1,4 @@
-import { useContext,useState } from "react";
+import { useContext } from "react";
 import DataContext from "../../Context/dataContext";
 import { useParams,useNavigate } from "react-router-dom";
 import { ToastContainer,toast } from "react-toastify";
@@ -22,8 +22,7 @@ const Validate = Yup.object().shape({
 });
 
 const ResetPasswordForm = () => {
-  const[password,setPassword] = useState("");
-  const { loading,setLoading } = useContext(DataContext);
+  const { loading,setLoading,password } = useContext(DataContext);
 
   const{randomString , expirationTimestamp} = useParams();
   const navigate = useNavigate();
@@ -99,7 +98,6 @@ const ResetPasswordForm = () => {
                             id="password"
                             placeholder="********"
                             className="form-control"
-                            onChange = {(e) => setPassword(e.target.value)}
                           />
                           {errors.password && touched.password && (
                             <p style={{ color: "red" }}>{errors.password}</p>

@@ -16,6 +16,7 @@ export const DataProvider = ({ children }) => {
   const [loggedUser, setLoggedUser] = useState("");
   const [token, setToken] = useState("");
   const [resetToken, setResetToken] = useState("");
+  const[password,setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -567,6 +568,8 @@ const{randomString,expirationTimestamp} = useParams();
         setShowPassword,
         resetToken,
         setResetToken,
+        password,
+        setPassword,
         handleSignIn,
         handleLogout,
         handleSignup,
