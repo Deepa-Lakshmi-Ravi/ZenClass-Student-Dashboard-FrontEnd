@@ -23,12 +23,13 @@ const Validate = Yup.object().shape({
 });
 
 const ResetPasswordForm = () => {
-  const { loading,setResetToken, handleresetPassword } = useContext(DataContext);
+  const { loading,setRandomString,setExpirationTimestamp, handleresetPassword } = useContext(DataContext);
 
-  const{id} = useParams();
+  const{randomString , expirationTimestamp} = useParams();
 
   useEffect(()=>{
-    setResetToken(id);
+    setRandomString(randomString);
+    setExpirationTimestamp(expirationTimestamp);
   })
 
   return (

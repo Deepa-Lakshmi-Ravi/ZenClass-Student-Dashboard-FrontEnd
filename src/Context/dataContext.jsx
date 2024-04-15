@@ -16,6 +16,8 @@ export const DataProvider = ({ children }) => {
   const [loggedUser, setLoggedUser] = useState("");
   const [token, setToken] = useState("");
   const [resetToken, setResetToken] = useState("");
+  const[randomString, setRandomString] = useState("");
+  const[expirationTimestamp, setExpirationTimestamp] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -168,7 +170,7 @@ export const DataProvider = ({ children }) => {
     setLoading(true);
     try {
       let response = await AxiosService.post(
-        `/student/reset-password/${resetToken}`,
+        `/student/reset-password/${randomString}/${expirationTimestamp}`,
         data
       );
       setResetToken("");
@@ -573,6 +575,10 @@ export const DataProvider = ({ children }) => {
         handleSignup,
         handleProfileUpdate,
         handleforgotPassword,
+        randomString,
+        setRandomString,
+        expirationTimestamp,
+        setExpirationTimestamp,
         handleresetPassword,
         loading,
         setLoading,
