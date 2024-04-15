@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { useNavigate,useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import AxiosService from "../Axios/AxiosService";
 import { roadMapData } from "../../utils/RoadmapData";
@@ -15,7 +15,6 @@ export const DataProvider = ({ children }) => {
   const [head, setHead] = useState("");
   const [loggedUser, setLoggedUser] = useState("");
   const [token, setToken] = useState("");
-  const [resetToken, setResetToken] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -162,35 +161,7 @@ export const DataProvider = ({ children }) => {
     }
   };
 
-  //handle reset
-const{randomString,expirationTimestamp} = useParams();
-  const handleresetPassword = async (data) => {
-    setLoading(true);
-    try {
-      let response = await AxiosService.post(
-        `/student/reset-password/${randomString}/${expirationTimestamp}`,
-        data
-      );
-      if (response.status === 201) {
-        toast.success("Password updated successfully", {
-          position: "top-center",
-        });
-        setTimeout(() => {
-          navigate("/");
-        }, 2000);
-      }
-    } catch (error) {
-      console.log(error);
-      toast.error(
-        "Invalid token or token has expired.Please request a new reset link.",
-        {
-          position: "top-center",
-        }
-      );
-    } finally {
-      setLoading(false);
-    }
-  };
+  
 
   //handle profile updation
   const handleProfileUpdate = async (data) => {
@@ -565,14 +536,11 @@ const{randomString,expirationTimestamp} = useParams();
         setToken,
         showPassword,
         setShowPassword,
-        resetToken,
-        setResetToken,
         handleSignIn,
         handleLogout,
         handleSignup,
         handleProfileUpdate,
         handleforgotPassword,
-        handleresetPassword,
         loading,
         setLoading,
         width,

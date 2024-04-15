@@ -38,7 +38,8 @@ import { ToastContainer } from "react-toastify";
 // });
 
 const Profile = () => {
-  const { loggedUser, loading, handleHead, handleProfileUpdate } = useContext(DataContext);
+  const { loggedUser, loading, handleHead, handleProfileUpdate } =
+    useContext(DataContext);
 
   useEffect(() => {
     handleHead("Update Profile");
@@ -71,205 +72,211 @@ const Profile = () => {
     handleProfileUpdate(formValues);
   };
 
-
   return (
-      <section className="profile">
-        <div className="container mt-5">
-            
-            <form onSubmit={handleSubmit} className="form-cards">
-              <div className="detailsCard">
-                <div className="personalDetails">
-                  <div className="form-group">
-                    <label className="label-style" htmlFor="firstName">
-                      FirstName
-                    </label>
-                    <input
-                      type="text"
-                      name="firstName"
-                      id="firstName"
-                      placeholder="Eg: John"
-                      className="form-control"
-                      value={formValues.firstName}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <br />
-                  <div className="form-group">
-                    <label className="label-style" htmlFor="lastName">
-                      LastName
-                    </label>
-                    <input
-                      type="text"
-                      name="lastName"
-                      id="lastName"
-                      placeholder="Smith"
-                      className="form-control"
-                      value={formValues.lastName}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <br />
-                  <div className="form-group">
-                    <label className="label-style" htmlFor="email">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      placeholder="Eg: johnsmith@abc.com"
-                      className="form-control"
-                      disabled
-                      value={formValues.email}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <br />
-                  <div className="form-group">
-                    <label className="label-style" htmlFor="contactNo">
-                      Phone
-                    </label>
-                    <input
-                      type="phone"
-                      name="contactNo"
-                      id="contactNo"
-                      placeholder="xxxxxxxxxxxx"
-                      className="form-control"
-                      value={formValues.contactNo}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
+    <section className="profile">
+      <div className="container mt-5">
+        <form onSubmit={handleSubmit} className="form-cards">
+          <div className="detailsCard">
+            <div className="personalDetails">
+              <div className="form-group">
+                <label className="label-style" htmlFor="firstName">
+                  FirstName
+                </label>
+                <input
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  placeholder="Eg: John"
+                  className="form-control"
+                  required
+                  value={formValues.firstName}
+                  onChange={handleChange}
+                />
               </div>
-              <div className="detailsCard">
-                <div className="personalDetails">
-                  <div className="form-group">
-                    <label className="label-style" htmlFor="qualification">
-                      Qualification
-                    </label>
-                    <input
-                      type="text"
-                      name="qualification"
-                      id="qualification"
-                      placeholder="Eg: B.Tech"
-                      className="form-control"
-                      value={formValues.qualification}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <br />
-                  <div className="form-group">
-                    <label className="label-style" htmlFor="yearofpassing">
-                      Year of Passing
-                    </label>
-                    <input
-                      type="text"
-                      name="yearofpassing"
-                      id="yearofpassing"
-                      placeholder=""
-                      className="form-control"
-                      value={formValues.yearofpassing}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <br />
-                  <div className="form-group">
-                    <label className="label-style" htmlFor="experience">
-                      Years of Experience
-                    </label>
-                    <input
-                      type="text"
-                      name="experience"
-                      id="experience"
-                      placeholder="Eg: fresher"
-                      className="form-control"
-                      value={formValues.experience}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <br />
-                  <div className="form-group">
-                    <label className="label-style" htmlFor="noticeperiod">
-                      Notice Period
-                    </label>
-                    <input
-                      type="text"
-                      name="noticePeriod"
-                      id="noticePeriod"
-                      placeholder="in days"
-                      className="form-control"
-                      value={formValues.noticePeriod}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
+              <br />
+              <div className="form-group">
+                <label className="label-style" htmlFor="lastName">
+                  LastName
+                </label>
+                <input
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  placeholder="Smith"
+                  className="form-control"
+                  required
+                  value={formValues.lastName}
+                  onChange={handleChange}
+                />
               </div>
-              <div className="detailsCard">
-                <div className="personalDetails">
-                  <div className="form-group">
-                    <label className="label-style" htmlFor="github">
-                      Github URL
-                    </label>
-                    <input
-                      type="text"
-                      name="githubUrl"
-                      id="githubUrl"
-                      placeholder="Example: github.com/<Your-Username>"
-                      className="form-control"
-                      value={formValues.githubUrl}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <br />
-                  <div className="form-group">
-                    <label className="label-style" htmlFor="portfolio">
-                      Portfolio URL
-                    </label>
-                    <input
-                      type="text"
-                      name="portfolioUrl"
-                      id="portfolioUrl"
-                      placeholder="Example: yourSite.com"
-                      className="form-control"
-                      value={formValues.portfolioUrl}
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <br />
-                  <div className="form-group">
-                    <label className="label-style" htmlFor="resume">
-                      Resume URL
-                    </label>
-                    <input
-                      type="text"
-                      name="resumeUrl"
-                      id="resumeUrl"
-                      placeholder="Example: docs.google.com/yourResumeParams"
-                      className="form-control"
-                      value={formValues.resumeUrl}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
+              <br />
+              <div className="form-group">
+                <label className="label-style" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Eg: johnsmith@abc.com"
+                  className="form-control"
+                  disabled
+                  required
+                  value={formValues.email}
+                  onChange={handleChange}
+                />
               </div>
-              <div className="save-btn-card">
-                <div className="save-btn-grid">
-                  <button
-                    type="submit"
-                    className="save-profile btn btn-primary"
-                    >
-                    {loading ? (
-                      <span className="spinner-border spinner-border-sm text-warning"></span>
-                    ) : (
-                      "Save"
-                    )}
-                  </button>
-                </div>
+              <br />
+              <div className="form-group">
+                <label className="label-style" htmlFor="contactNo">
+                  Phone
+                </label>
+                <input
+                  type="phone"
+                  name="contactNo"
+                  id="contactNo"
+                  placeholder="xxxxxxxxxxxx"
+                  className="form-control"
+                  required
+                  value={formValues.contactNo}
+                  onChange={handleChange}
+                />
               </div>
-            </form>
-        </div>
-        <ToastContainer position="top-center" autoClose={3000} />
-      </section>
+            </div>
+          </div>
+          <div className="detailsCard">
+            <div className="personalDetails">
+              <div className="form-group">
+                <label className="label-style" htmlFor="qualification">
+                  Qualification
+                </label>
+                <input
+                  type="text"
+                  name="qualification"
+                  id="qualification"
+                  placeholder="Eg: B.Tech"
+                  className="form-control"
+                  required
+                  value={formValues.qualification}
+                  onChange={handleChange}
+                />
+              </div>
+              <br />
+              <div className="form-group">
+                <label className="label-style" htmlFor="yearofpassing">
+                  Year of Passing
+                </label>
+                <input
+                  type="text"
+                  name="yearofpassing"
+                  id="yearofpassing"
+                  placeholder=""
+                  className="form-control"
+                  required
+                  value={formValues.yearofpassing}
+                  onChange={handleChange}
+                />
+              </div>
+              <br />
+              <div className="form-group">
+                <label className="label-style" htmlFor="experience">
+                  Years of Experience
+                </label>
+                <input
+                  type="text"
+                  name="experience"
+                  id="experience"
+                  placeholder="Eg: fresher"
+                  className="form-control"
+                  required
+                  value={formValues.experience}
+                  onChange={handleChange}
+                />
+              </div>
+              <br />
+              <div className="form-group">
+                <label className="label-style" htmlFor="noticeperiod">
+                  Notice Period
+                </label>
+                <input
+                  type="text"
+                  name="noticePeriod"
+                  id="noticePeriod"
+                  placeholder="in days"
+                  className="form-control"
+                  required
+                  value={formValues.noticePeriod}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="detailsCard">
+            <div className="personalDetails">
+              <div className="form-group">
+                <label className="label-style" htmlFor="github">
+                  Github URL
+                </label>
+                <input
+                  type="text"
+                  name="githubUrl"
+                  id="githubUrl"
+                  placeholder="Example: github.com/<Your-Username>"
+                  className="form-control"
+                  required
+                  value={formValues.githubUrl}
+                  onChange={handleChange}
+                />
+              </div>
+              <br />
+              <div className="form-group">
+                <label className="label-style" htmlFor="portfolio">
+                  Portfolio URL
+                </label>
+                <input
+                  type="text"
+                  name="portfolioUrl"
+                  id="portfolioUrl"
+                  placeholder="Example: yourSite.com"
+                  className="form-control"
+                  required
+                  value={formValues.portfolioUrl}
+                  onChange={handleChange}
+                />
+              </div>
+              <br />
+              <div className="form-group">
+                <label className="label-style" htmlFor="resume">
+                  Resume URL
+                </label>
+                <input
+                  type="text"
+                  name="resumeUrl"
+                  id="resumeUrl"
+                  placeholder="Example: docs.google.com/yourResumeParams"
+                  className="form-control"
+                  required
+                  value={formValues.resumeUrl}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="save-btn-card">
+            <div className="save-btn-grid">
+              <button type="submit" className="save-profile btn btn-primary">
+                {loading ? (
+                  <span className="spinner-border spinner-border-sm text-warning"></span>
+                ) : (
+                  "Save"
+                )}
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <ToastContainer position="top-center" autoClose={3000} />
+    </section>
   );
 };
 
