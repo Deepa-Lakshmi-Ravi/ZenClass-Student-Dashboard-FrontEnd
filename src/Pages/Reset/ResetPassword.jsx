@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext,useState } from "react";
 import DataContext from "../../Context/dataContext";
 import { useParams,useNavigate } from "react-router-dom";
 import { ToastContainer,toast } from "react-toastify";
@@ -7,7 +7,8 @@ import * as Yup from "yup";
 import logo from "../../assets/zen logo.png";
 import banner from "../../assets/zen banner.png";
 import "./ResetPassword.css";
-import AxiosService from "../../Axios/AxiosService";
+//import AxiosService from "../../Axios/AxiosService";
+import axios from 'axios';
 
 const Validate = Yup.object().shape({
   password: Yup.string()
@@ -18,23 +19,22 @@ const Validate = Yup.object().shape({
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
       "Make it More Strong"
     ),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Password Must Match")
-    .required("Required"),
 });
 
 const ResetPasswordForm = () => {
+  const[password,setPassword] = useState("");
   const { loading,setLoading } = useContext(DataContext);
 
   const{randomString , expirationTimestamp} = useParams();
   const navigate = useNavigate();
 
-  const handleresetPassword = async (data) => {
+  const handleresetPassword = async () => {
     setLoading(true);
     try {
-      let response = await AxiosService.post(
-        `/student/reset-password/${randomString}/${expirationTimestamp}`,
-        data
+      let response = await axios.post(
+        `https://zenclass-student-dashboard-backend-juqy.onrender.com/student/reset-password/${randomString}/${expirationTimestamp}`,{
+          newPassword: password
+        }
       );
       if (response.status === 201) {
         toast.success("Password updated successfully", {
@@ -80,7 +80,6 @@ const ResetPasswordForm = () => {
                   <Formik
                     initialValues={{
                       password: "",
-                      confirmPassword: "",
                     }}
                     validationSchema={Validate}
                     onSubmit={(values, { resetForm }) => {
@@ -100,32 +99,11 @@ const ResetPasswordForm = () => {
                             id="password"
                             placeholder="********"
                             className="form-control"
+                            onChange = {(e) => setPassword(e.target.value)}
                           />
                           {errors.password && touched.password && (
                             <p style={{ color: "red" }}>{errors.password}</p>
                           )}
-                        </div>
-
-                        <div className="form-group">
-                          <label
-                            className="label-style"
-                            htmlFor="confirmPassword"
-                          >
-                            Confirm Password
-                          </label>
-                          <Field
-                            type="password"
-                            name="confirmPassword"
-                            id="confirmPassword"
-                            placeholder="********"
-                            className="form-control"
-                          />
-                          {errors.confirmPassword &&
-                            touched.confirmPassword && (
-                              <p style={{ color: "red" }}>
-                                {errors.confirmPassword}
-                              </p>
-                            )}
                         </div>
                         <button
                           style={{
