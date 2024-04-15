@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import AxiosService from "../Axios/AxiosService";
 import { roadMapData } from "../../utils/RoadmapData";
@@ -16,8 +16,6 @@ export const DataProvider = ({ children }) => {
   const [loggedUser, setLoggedUser] = useState("");
   const [token, setToken] = useState("");
   const [resetToken, setResetToken] = useState("");
-  const[randomString, setRandomString] = useState("");
-  const[expirationTimestamp, setExpirationTimestamp] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
@@ -165,7 +163,7 @@ export const DataProvider = ({ children }) => {
   };
 
   //handle reset
-
+const{randomString,expirationTimestamp} = useParams();
   const handleresetPassword = async (data) => {
     setLoading(true);
     try {
@@ -574,10 +572,6 @@ export const DataProvider = ({ children }) => {
         handleSignup,
         handleProfileUpdate,
         handleforgotPassword,
-        randomString,
-        setRandomString,
-        expirationTimestamp,
-        setExpirationTimestamp,
         handleresetPassword,
         loading,
         setLoading,
