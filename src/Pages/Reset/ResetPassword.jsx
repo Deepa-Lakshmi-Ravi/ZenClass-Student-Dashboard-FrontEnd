@@ -23,6 +23,7 @@ import axios from 'axios';
 
 const ResetPasswordForm = () => {
   const[password,setPassword] = useState("");
+  const[confirmPassword,setConfirmPassword]=useState("");
   const { loading,setLoading } = useContext(DataContext);
 
   const{randomString , expirationTimestamp} = useParams();
@@ -35,7 +36,7 @@ const ResetPasswordForm = () => {
       let response = await axios.post(
         `https://zenclass-student-dashboard-backend-juqy.onrender.com/student/reset-password/${randomString}/${expirationTimestamp}`,
         {
-          newPassword: password
+          newPassword: password,confirmPassword
         }
       );
       if (response.status === 200) {
@@ -92,6 +93,20 @@ const ResetPasswordForm = () => {
                             className="form-control"
                             required
                             onChange={(e) => setPassword(e.target.value)}
+                          />
+                        </div>
+                        <div className="form-group">
+                          <label className="label-style" htmlFor="confirmpassword">
+                            Confirm Password
+                          </label>
+                          <input
+                            type="password"
+                            name="confirmpassword"
+                            id="confirmpassword"
+                            placeholder="********"
+                            className="form-control"
+                            required
+                            onChange={(e) => setConfirmPassword(e.target.value)}
                           />
                         </div>
                         <button
