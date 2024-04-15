@@ -1,12 +1,13 @@
-import { useContext,useEffect } from "react";
+import { useContext } from "react";
 import DataContext from "../../Context/dataContext";
-import { useParams } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { useParams,useNavigate } from "react-router-dom";
+import { ToastContainer,toast } from "react-toastify";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import logo from "../../assets/zen logo.png";
 import banner from "../../assets/zen banner.png";
 import "./ResetPassword.css";
+import AxiosService from "../../Axios/AxiosService";
 
 const Validate = Yup.object().shape({
   password: Yup.string()
@@ -16,21 +17,44 @@ const Validate = Yup.object().shape({
     .matches(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
       "Make it More Strong"
-    ),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Password Must Match")
-    .required("Required"),
+    )
 });
 
 const ResetPasswordForm = () => {
-  const { loading,setRandomString,setExpirationTimestamp, handleresetPassword } = useContext(DataContext);
+  const { loading,setLoading } = useContext(DataContext);
 
   const{randomString , expirationTimestamp} = useParams();
+  const navigate = useNavigate();
 
-  useEffect(()=>{
-    setRandomString(randomString);
-    setExpirationTimestamp(expirationTimestamp);
-  })
+  const handleresetPassword = async (data) => {
+    setLoading(true);
+    try {
+      let response = await AxiosService.post(
+        `/student/reset-password/${randomString}/${expirationTimestamp}`,
+        data
+      );
+      if (response.status === 201) {
+        toast.success("Password updated successfully", {
+          position: "top-center",
+        });
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(
+        "Invalid token or token has expired.Please request a new reset link.",
+        {
+          position: "top-center",
+        }
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  
 
   return (
       <div className="resetpage">
@@ -50,7 +74,6 @@ const ResetPasswordForm = () => {
                   <Formik
                     initialValues={{
                       password: "",
-                      confirmPassword: "",
                     }}
                     validationSchema={Validate}
                     onSubmit={(values, { resetForm }) => {
@@ -74,28 +97,6 @@ const ResetPasswordForm = () => {
                           {errors.password && touched.password && (
                             <p style={{ color: "red" }}>{errors.password}</p>
                           )}
-                        </div>
-
-                        <div className="form-group">
-                          <label
-                            className="label-style"
-                            htmlFor="confirmPassword"
-                          >
-                            Confirm Password
-                          </label>
-                          <Field
-                            type="password"
-                            name="confirmPassword"
-                            id="confirmPassword"
-                            placeholder="********"
-                            className="form-control"
-                          />
-                          {errors.confirmPassword &&
-                            touched.confirmPassword && (
-                              <p style={{ color: "red" }}>
-                                {errors.confirmPassword}
-                              </p>
-                            )}
                         </div>
                         <button
                           style={{
