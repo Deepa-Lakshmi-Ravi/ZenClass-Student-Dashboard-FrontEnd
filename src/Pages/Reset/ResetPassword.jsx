@@ -2,24 +2,12 @@ import { useContext,useState } from "react";
 import DataContext from "../../Context/dataContext";
 import { useParams,useNavigate } from "react-router-dom";
 import { ToastContainer,toast } from "react-toastify";
-//import { Formik, Form, Field } from "formik";
-//import * as Yup from "yup";
 import logo from "../../assets/zen logo.png";
 import banner from "../../assets/zen banner.png";
 import "./ResetPassword.css";
-//import AxiosService from "../../Axios/AxiosService";
 import axios from 'axios';
 
-// const Validate = Yup.object().shape({
-//   password: Yup.string()
-//     .min(8, "Must be atleast 8 characters")
-//     .max(15, "Must be less than 15 characters")
-//     .required("Required")
-//     .matches(
-//       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-//       "Make it More Strong"
-//     ),
-// });
+
 
 const ResetPasswordForm = () => {
   const[password,setPassword] = useState("");
@@ -29,6 +17,7 @@ const ResetPasswordForm = () => {
   const{randomString , expirationTimestamp} = useParams();
   const navigate = useNavigate();
 
+  //handle reset
   const handleresetPassword = async (e) => {
     e.preventDefault();
     setLoading(true);
