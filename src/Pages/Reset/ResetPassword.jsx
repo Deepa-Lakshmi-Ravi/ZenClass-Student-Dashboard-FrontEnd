@@ -1,13 +1,11 @@
 import { useContext } from "react";
 import DataContext from "../../Context/dataContext";
-import { useNavigate, useParams } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import logo from "../../assets/zen logo.png";
 import banner from "../../assets/zen banner.png";
 import "./ResetPassword.css";
-import AxiosService from "../../Axios/AxiosService";
 
 const Validate = Yup.object().shape({
   password: Yup.string()
@@ -24,38 +22,9 @@ const Validate = Yup.object().shape({
 });
 
 const ResetPasswordForm = () => {
-  const { loading, setLoading } = useContext(DataContext);
+  const { loading, handleresetPassword } = useContext(DataContext);
 
-  const { randomString, expirationTimestamp } = useParams();
-  const navigate = useNavigate();
-
-  const handleresetPassword = async (data) => {
-    setLoading(true);
-    try {
-      const response = await AxiosService.post(`/student/reset-password/${randomString}/${expirationTimestamp}`,data);
-      if (response.status === 200) {
-        toast.success("Password updated successfully", {
-          position: "top-center",
-        });
-        setTimeout(() => {
-          navigate("/");
-        }, 2000);
-      }
-    } catch (error) {
-      if (error.response && error.response.status === 400) {
-        toast.error(
-          "Invalid token or token has expired.Please request a new reset link.",
-          {
-            position: "top-center",
-          }
-        );
-      } else {
-        console.log(error);
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
+  
 
   return (
       <div className="resetpage">
