@@ -173,7 +173,6 @@ export const DataProvider = ({ children }) => {
         `/student/reset-password/${randomString}/${expirationTimestamp}`,
         data
       );
-      setResetToken("");
       if (response.status === 201) {
         toast.success("Password updated successfully", {
           position: "top-center",
